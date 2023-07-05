@@ -25,6 +25,19 @@ public class BattleshipGame implements Serializable {
         }
     }
 
+    public void placeShip(int playerNumber, int row, int col) {
+        int[][] board;
+
+        if (playerNumber == 1) {
+            board = boardPlayer1;
+        } else {
+            board = boardPlayer2;
+        }
+
+        board[row][col] = SHIP;
+    }
+
+
     public void initPlayer(int playerNumber) {
         currentPlayer = playerNumber;
         gameOver = false;

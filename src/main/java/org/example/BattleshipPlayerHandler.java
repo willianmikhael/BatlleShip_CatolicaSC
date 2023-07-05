@@ -25,6 +25,19 @@ public class BattleshipPlayerHandler extends Thread {
             inputStream = new ObjectInputStream(clientSocket.getInputStream());
 
             Scanner scanner = new Scanner(System.in);
+
+            // Informe a posição dos navios
+            System.out.println("Jogador " + playerNumber + ", informe a posição dos seus navios.");
+
+            for (int i = 0; i < 5; i++) {
+                System.out.print("Informe a linha do navio " + (i + 1) + ": ");
+                int row = scanner.nextInt();
+                System.out.print("Informe a coluna do navio " + (i + 1) + ": ");
+                int col = scanner.nextInt();
+
+                game.placeShip(playerNumber, row, col);
+            }
+
             game.initPlayer(playerNumber);
 
             while (!game.isGameOver()) {
